@@ -12,6 +12,7 @@ public class tileManage : MonoBehaviour
     public GameObject WallT;
     public level Level;
 
+    [SerializeField] GameObject Player;
     
     private GameObject[,] levelGrid;
 
@@ -26,10 +27,7 @@ public class tileManage : MonoBehaviour
     {
         Debug.Log("running");
         GenerateTerrain();
-    }
-    private void PopulateGrid()
-    {
-        
+        SetPlayer();
     }
     private void GenerateTerrain()
     { 
@@ -48,6 +46,7 @@ public class tileManage : MonoBehaviour
                 else if (Level.levelGrid[x, z] == 'S' && StartT)
                 {
                     levelGrid[x, z] = Instantiate(StartT, new Vector3(x, 0, z), Quaternion.identity);
+                    Level.startX = x; Level.startY = z;
                 }
                 else if (Level.levelGrid[x, z] == 'E' && EndT)
                 {
@@ -56,6 +55,7 @@ public class tileManage : MonoBehaviour
                 else if (Level.levelGrid[x, z] == 'W' && WallT)
                 {
                     levelGrid[x, z] = Instantiate(WallT, new Vector3(x, 0, z), Quaternion.identity);
+                    Level.endX = x; Level.endY = z;
                 }
                 else if (Level.levelGrid[x, z] == ' ')
                 {
@@ -76,9 +76,33 @@ public class tileManage : MonoBehaviour
             Destroy(o);
         }
     }
+
+    public void SetPlayer()
+    {
+        if (FindObjectOfType<PlayerControlls>())
+        {
+            Player.transform.position = new Vector3(Level.startX, 1, Level.startY);
+            Player.GetComponent<PlayerControlls>().Level = Level;
+        }
+        else
+        {
+            Player = Instantiate(Player, new Vector3(Level.startX, 1, Level.startY), Quaternion.identity);
+            Player.GetComponent<PlayerControlls>().Level = Level;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-        
+        if (Player.transform.position.x < -1 ||
+            Player.transform.position.x  > Level.rows +1||
+            Player.transform.position.z < -1 ||
+            Player.transform.position.z > Level.columns+1||
+            Player.transform.position.y < -200)
+        {
+            Vector3 Start = new Vector3(Level.startX, 1, Level.startY);
+            Player.transform.position = Start;
+
+            Debug.Log("FAllEN" +  Start);
+        }
     }
 }

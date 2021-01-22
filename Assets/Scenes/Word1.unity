@@ -155,9 +155,10 @@ MonoBehaviour:
   GrassT: {fileID: 2210845534460004373, guid: 5fe33575b00b34b479fa272e520b8381, type: 3}
   IceT: {fileID: 2401966230660795492, guid: 6eacb7de21b8f5f4dab8b97ce067c013, type: 3}
   Block: {fileID: 0}
-  StartT: {fileID: 0}
-  EndT: {fileID: 0}
+  StartT: {fileID: 2624530489555186413, guid: a3589f3acfd02e44ca403ff222dd910e, type: 3}
+  EndT: {fileID: 2624530489555186413, guid: a3589f3acfd02e44ca403ff222dd910e, type: 3}
   WallT: {fileID: 0}
+  Player: {fileID: 5660514687948612822, guid: b42a725544e76b44294243c851565d27, type: 3}
 --- !u!4 &399464793
 Transform:
   m_ObjectHideFlags: 0
@@ -248,13 +249,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719448840}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.4777144, y: -0.5213339, z: 0.4777144, w: 0.5213339}
+  m_LocalPosition: {x: 2, y: 5, z: 1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 85, y: -90, z: 0}
 --- !u!1 &1975704822
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +284,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95317537, b: 0.8254717, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
