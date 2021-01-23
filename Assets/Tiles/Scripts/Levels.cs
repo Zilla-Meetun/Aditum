@@ -19,15 +19,15 @@ public struct level
     //  = Nothing
     //S = Start
     //E = End
-    private bool OutOfBounds(int x, int z)
+    public bool OutBounds(int x, int z)
     {
-        if (x >= rows || z >= columns || x < 0 || z < 0)
+        if (x >= rows || x < 0 || z >= columns || z < 0)
             return true;
         return false;
     }
     public bool IsIce(int x, int z)
     {
-        if (!OutOfBounds(x, z) && levelGrid[x, z] == 'I')
+        if (!OutBounds(x, z) && levelGrid[x, z] == 'I')
             return true;
         return false;
     }
